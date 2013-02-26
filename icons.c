@@ -8,11 +8,11 @@ typedef struct _icontrans_t {
 	char *symbol;
 } icontrans_t;
 
-unsigned int icons_len = 0;
+unsigned int icons_len;
 icontrans_t *icons;
 
 const char *icons_translate(char *name) {
-	if (name == NULL)
+	if (name == NULL || icons == NULL)
 		return NULL;
 		
 	for (int i = 0; i < icons_len; ++i) {
