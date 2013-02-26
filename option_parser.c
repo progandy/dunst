@@ -12,16 +12,6 @@
 #include "option_parser.h"
 #include "utils.h"
 
-typedef struct _entry_t {
-        char *key;
-        char *value;
-} entry_t;
-
-typedef struct _section_t {
-        char *name;
-        int entry_count;
-        entry_t *entries;
-} section_t;
 
 static int section_count = 0;
 static section_t *sections;
@@ -72,6 +62,11 @@ section_t *get_section(char *name)
 
         return NULL;
 }
+
+const section_t *ini_get_section_ref(char *name) {
+	return get_section(name);
+}
+
 
 void add_entry(char *section_name, char *key, char *value)
 {

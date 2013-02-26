@@ -33,6 +33,7 @@
 #include "utils.h"
 #include "rules.h"
 #include "notification.h"
+#include "icons.h"
 
 #include "option_parser.h"
 #include "settings.h"
@@ -347,6 +348,7 @@ int main(int argc, char *argv[])
         g_main_loop_run(mainloop);
 
         dbus_tear_down(owner_id);
+        icons_free();
 
         return 0;
 }

@@ -18,6 +18,7 @@
 #include "x.h"
 #include "utils.h"
 #include "dunst.h"
+#include "menu.h"
 #include "settings.h"
 #include "notification.h"
 

@@ -17,6 +17,8 @@
     #   %b  body
     #   %i  iconname (including its path)
     #   %I  iconname (without its path)
+    #   %c  symbol for iconname according to icons_to_symbols section or nothing
+    #   %C  symbol for iconname or iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
     format = "<b>%s</b>\n%b"
@@ -162,6 +164,11 @@
     background = "#900000"
     foreground = "#ffffff"
     timeout = 0
+	
+[icons_to_symbols]
+    # specify symbol characters for icon names
+    # Example for Font Awesome:
+    # appointment-soon = 
 
 
 # Every section that isn't one of the above is interpreted as a rules

@@ -18,6 +18,7 @@
 #include "settings.h"
 #include "rules.h"
 #include "menu.h"
+#include "icons.h"
 
 int next_notification_id = 1;
 
@@ -284,7 +285,12 @@ int notification_init(notification * n, int id)
         n->msg = string_replace("%a", n->appname, g_strdup(n->format));
         n->msg = string_replace("%s", n->summary, n->msg);
         if (n->icon) {
-                n->msg = string_replace("%I", basename(n->icon), n->msg);
+                char *base = basename(n->icon);
+                char *symbol = icons_translate(base);
+		
+                n->msg = string_replace("%I", base, n->msg);
+                n->msg = string_replace("%C", symbol ? symbol : base, n->msg);
+                n->msg = string_replace("%c", symbol ? symbol : "", n->msg);
                 n->msg = string_replace("%i", n->icon, n->msg);
         }
         n->msg = string_replace("%b", n->body, n->msg);

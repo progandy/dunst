@@ -3,10 +3,22 @@
 
 #include <stdio.h>
 
+typedef struct _entry_t {
+        char *key;
+        char *value;
+} entry_t;
+
+typedef struct _section_t {
+        char *name;
+        int entry_count;
+        entry_t *entries;
+} section_t;
+
 int load_ini_file(FILE *);
 char *ini_get_string(char *section, char *key, const char *def);
 int ini_get_int(char *section, char *key, int def);
 double ini_get_double(char *section, char *key, double def);
+const section_t *ini_get_section_ref(char *section);
 int ini_get_bool(char *section, char *key, int def);
 void free_ini(void);
 

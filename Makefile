@@ -11,7 +11,8 @@ SRC = x.c  \
 	  settings.c \
 	  rules.c \
 	  menu.c \
-	  notification.c
+	  notification.c \
+	  icons.c
 OBJ = ${SRC:.c=.o}
 
 all: doc options dunst service dunstify

@@ -9,6 +9,7 @@
 #include "option_parser.h"
 #include "settings.h"
 #include "config.h"
+#include "icons.h"
 
 settings_t settings;
 
@@ -243,6 +244,8 @@ void load_settings(char *cmdline_config_path)
                 rules = g_slist_insert(rules, &(default_rules[i]), 0);
         }
 
+        icons_from_inisection(ini_get_section_ref("icons_to_symbols"));
+
         char *cur_section = NULL;
         for (;;) {
                 cur_section = next_section(cur_section);
@@ -252,7 +255,8 @@ void load_settings(char *cmdline_config_path)
                     || strcmp(cur_section, "shortcuts") == 0
                     || strcmp(cur_section, "urgency_low") == 0
                     || strcmp(cur_section, "urgency_normal") == 0
-                    || strcmp(cur_section, "urgency_critical") == 0)
+                    || strcmp(cur_section, "urgency_critical") == 0
+                    || strcmp(cur_section, "icon_trans_table") == 0)
                         continue;
 
                 /* check for existing rule with same name */
