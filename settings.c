@@ -8,8 +8,9 @@
 #include "rules.h"
 #include "option_parser.h"
 #include "settings.h"
-#include "config.h"
 #include "icons.h"
+#include "config.h"
+#include "utils.h"
 
 settings_t settings;
 
